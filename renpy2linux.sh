@@ -10,7 +10,7 @@ else
         exit 1
     fi
 
-    RENPY_VERSION=$(python2 -c 'from renpy import version_tuple; print ".".join(str(i) for i in version_tuple[0:3])')
+    RENPY_VERSION=$(python -c 'from __future__ import print_function; from renpy import version_tuple; print(".".join(str(i) for i in version_tuple[0:3]))')
 fi
 echo "Ren'Py version: ${RENPY_VERSION}"
 

@@ -8,6 +8,7 @@ Prerequisites
 * wget
 * tar
 * bash
+* python
 * internet access
 
 License
