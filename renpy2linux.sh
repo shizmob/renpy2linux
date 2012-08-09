@@ -6,7 +6,7 @@ if [[ $# -ge 1 ]]; then
 else
     echo "Determining Ren'Py version..."
     if [ ! -f renpy/__init__.py ]; then
-        echo "Could not read renpy/__init__.rpy -- is this a Ren'Py game?"
+        echo "Could not read renpy/__init__.py -- is this a Ren'Py game?"
         exit 1
     fi
 
