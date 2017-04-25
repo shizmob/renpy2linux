@@ -83,6 +83,13 @@ for x in exe sh app ; do
     cp -R renpy.$x ../../"${TITLE}".$x
   fi
 done
+if test -d "../../${TITLE}.app/Contents/MacOS/lib" ; then
+  echo "==> Fixing up ${TITLE}.app..."
+  rm -rf "../../${TITLE}.app/Contents/MacOS/lib"
+  ln -s ../../../lib "../../${TITLE}.app/Contents/MacOS/lib"
+  cp "../../${TITLE}.app/Contents/MacOS/renpy" "../../${TITLE}.app/Contents/MacOS/${TITLE}"
+  sed -i -e 's!<string>renpy</string>!'"<string>${TITLE}</string>"'!g' "../../${TITLE}.app/Contents/Info.plist"
+fi
 cd ..
 
 echo "\o/ Done!"
