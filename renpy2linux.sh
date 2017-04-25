@@ -13,11 +13,11 @@ trap 'cd "$BASEDIR" && rm -rf __tmp' EXIT
 
 
 echo "==> Determining game information..."
+
 # Read Ren'Py version.
 if test $# -gt 1 ; then
     RENPYVER=$2
 else
-    echo "=> Determining Ren'Py version..."
     if [ ! -f renpy/__init__.py ]; then
         echo "!! Could not read renpy/__init__.py -- is this a Ren'Py game?"
         exit 1
@@ -68,10 +68,11 @@ fi
 echo "==> Copying files..."
 # Copy the required platform files.
 cd "${SDKDIR}"
-for x in $(echo lib/*) ; do
-  if ! test -e "../../lib/$x" ; then
+for x in lib/* ; do
+  if ! test -e "../../$x" ; then
     echo "=> $x"
     cp -R "$x" ../../lib
+    ln -s renpy "../../$x/${TITLE}"
   fi
 done
 
