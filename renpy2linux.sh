@@ -23,7 +23,7 @@ else
         exit 1
     fi
 
-    RENPYVER=$(python -c 'from renpy import version_tuple; print ".".join(str(i) for i in version_tuple[:3])')
+    RENPYVER=$(python2 -c 'from renpy import version_tuple; print ".".join(str(i) for i in version_tuple[:3])')
 fi
 echo "=> Ren'Py version: ${RENPYVER}"
 
